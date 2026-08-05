@@ -244,8 +244,8 @@
 
     <label>¿Recibís la Beca Manuel Belgrano?</label>
     <div class="radio-row">
-      <label class="radio-opt"><input type="radio" name="beca" value="si" required> Sí</label>
-      <label class="radio-opt"><input type="radio" name="beca" value="no" required> No</label>
+      <label class="radio-opt"><input type="radio" name="beca" value="true" required> Sí</label>
+      <label class="radio-opt"><input type="radio" name="beca" value="false" required> No</label>
     </div>
 
     <button type="submit" id="submitBtn" disabled>Confirmar turno</button>
@@ -343,7 +343,7 @@ function render(){
 
       const peopleList = people.length
         ? `<ul class="slot-people">${people.map(p =>
-            `<li><span>${escapeHtml(p.nombre)}</span><span class="slot-tag">${p.beca === 'si' ? 'Beca' : 'Sin beca'}</span></li>`
+            `<li><span>${escapeHtml(p.nombre)}</span><span class="slot-tag">${p.beca ? 'Beca' : 'Sin beca'}</span></li>`
           ).join('')}</ul>`
         : '';
 
@@ -437,7 +437,7 @@ try{
         {
           turno:selectedSlot,
           nombre:nombre,
-          beca:becaEl.value
+          beca: becaEl.value === "true"
         }
       ]);
 
@@ -479,13 +479,7 @@ try{
     submitBtn.disabled=false;
 
 }
-  }catch(err){
-    console.error(err);
-    msg.textContent = 'Hubo un error al guardar. Probá de nuevo.';
-    msg.classList.add('error');
-    submitBtn.textContent = 'Confirmar turno';
-    submitBtn.disabled = false;
-  }
+
 });
 
 loadSlots();
