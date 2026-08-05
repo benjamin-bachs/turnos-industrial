@@ -341,12 +341,12 @@ function render(){
       const div = document.createElement('div');
       div.className = 'slot' + (full ? ' full' : '') + (selectedSlot === slot.id ? ' selected' : '');
 
-      const peopleList = people.length
-        ? `<ul class="slot-people">${people.map(p =>
-            `<li><span>${escapeHtml(p.nombre)}</span><span class="slot-tag">${p.beca ? 'Beca' : 'Sin beca'}</span></li>`
-          ).join('')}</ul>`
-        : '';
-
+     const peopleList = people.length
+  ? `<ul class="slot-people">${people.map(p =>
+      `<li><span>${escapeHtml(p.nombre)}</span></li>`
+    ).join('')}</ul>`
+  : '';
+  
       div.innerHTML = `
         <div class="slot-head">
           <span class="slot-time">${slot.time}</span>
