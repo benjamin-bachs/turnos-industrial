@@ -228,7 +228,7 @@
 <div class="sheet">
   <header>
     <span class="stamp">Cobertura de evento</span>
-    <button class="refresh-btn" onclick="loadSlots()">Actualizar</button>
+    <button class="refresh-btn" id="refreshBtn">Actualizar</button>
     <h1>Planilla de turnos</h1>
     <p class="sub">Elegí un turno con cupo disponible (máx. 5 personas por turno).</p>
   </header>
@@ -481,6 +481,9 @@ try{
 }
 
 });
+
+document.getElementById("refreshBtn")
+  .addEventListener("click", loadSlots);
 
 loadSlots();
 </script>
